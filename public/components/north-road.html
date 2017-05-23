@@ -1,0 +1,77 @@
+<!-- import polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="styles-styles.html">
+<link rel="import" href="traffic-light.html">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+<dom-module id="north-road">
+    <template>
+        <style include="styles-styles" is="custom-style"></style>
+
+        <div class="flex flex--row">
+            <div class="flex__item flex__item--top"></div>
+            <div class="flex__item--top flex flex--row">
+                <div class="v-lane-1 flex flex--col--rev">
+                    <traffic-light orientation="vertical" status="{{status_1}}"></traffic-light>
+                </div>
+                <div class="v-lane-2 flex flex--col--rev">
+                    <traffic-light orientation="vertical" status="{{status_2}}"></traffic-light>
+                </div>
+
+                <div class="v-opp-lane-1">
+                    <i class="fa fa-arrow"></i>
+                </div>
+                <div class="v-opp-lane-2"></div>
+            </div>
+            <div class="flex__item flex__item--top"></div>
+        </div>
+
+
+    </template>
+    <script>
+        Polymer({
+            is: 'north-road',
+            properties: {},
+            ready: function () {
+                var _this = this;
+                document.addEventListener('go-dir-1', function (e) {
+                    // turn semaphore red
+                    _this.set('status_2', 'yellow');
+
+                    setTimeout(function () {
+                        _this.set('status_1', 'red');
+                        _this.set('status_2', 'red');
+                    }, 1500)
+                });
+                document.addEventListener('go-dir-2', function (e) {
+                    _this.set('status_1', 'red');
+                    _this.set('status_2', 'red');
+                });
+
+                document.addEventListener('go-dir-3', function (e) {
+                    _this.set('status_1', 'yellow');
+                    _this.set('status_2', 'yellow');
+
+                    setTimeout(function () {
+                        _this.set('status_1', 'green');
+                        _this.set('status_2', 'red');
+                    }, 1500)
+                });
+                document.addEventListener('go-dir-4', function (e) {
+                    _this.set('status_1', 'yellow');
+                    _this.set('status_2', 'yellow');
+
+                    setTimeout(function () {
+                        _this.set('status_1', 'red');
+                        _this.set('status_2', 'green');
+                    }, 1500)
+                });
+
+                // when error state is detected, lights should flash yellow
+                document.addEventListener('error-state', function (e) {
+                    console.log('north error-state ');
+                });
+            }
+        })
+    </script>
+</dom-module>

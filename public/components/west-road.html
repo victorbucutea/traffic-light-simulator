@@ -1,0 +1,64 @@
+<!-- import polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="west-road">
+    <template>
+        <style include="styles-styles" is="custom-style"></style>
+
+
+        <div class="lane-1 flex flex-row">
+            <traffic-light status="{{status_1}}"></traffic-light>
+        </div>
+        <div class="lane-2 flex flex-row">
+            <traffic-light status="{{status_2}}"></traffic-light>
+        </div>
+
+        <div class="opp-lane-1"></div>
+        <div class="opp-lane-2"></div>
+
+
+    </template>
+    <script>
+        Polymer({
+            is: 'west-road',
+            properties: {},
+            ready: function () {
+                var _this = this;
+                document.addEventListener('go-dir-1', function (e) {
+                    // turn semaphore red
+                    _this.set('status_1','yellow');
+
+                    setTimeout(function(){
+                        _this.set('status_1','green');
+                        _this.set('status_2','red');
+                    },1500)
+                });
+                document.addEventListener('go-dir-2', function (e) {
+                    _this.set('status_1','yellow');
+                    _this.set('status_2','yellow');
+
+                    setTimeout(function(){
+                        _this.set('status_1','red');
+                        _this.set('status_2','green');
+                    },1500)
+                });
+                document.addEventListener('go-dir-3', function (e) {
+                    _this.set('status_2','yellow');
+
+                    setTimeout(function(){
+                        _this.set('status_1','red');
+                        _this.set('status_2','red');
+                    },1500)
+                }.bind(this));
+                document.addEventListener('go-dir-4', function (e) {
+                    // nothing to do, we have red
+                });
+
+                // when error state is detected, lights should flash yellow
+                document.addEventListener('error-state', function (e) {
+                    console.log('west error-state ');
+                });
+            }
+        })
+    </script>
+</dom-module>

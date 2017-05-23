@@ -1,0 +1,81 @@
+<!-- import polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="south-road">
+    <template>
+
+        <style include="styles-styles" is="custom-style"></style>
+
+        <div id="demo2" class="flex flex--row">
+            <div class="flex__item flex__item--top"></div>
+            <div class="flex__item--top flex flex--row">
+                <div class="v-lane-1"></div>
+                <div class="v-lane-2"></div>
+
+                <div class="v-opp-lane-1">
+                    <traffic-light orientation="vertical" status="{{status_1}}"></traffic-light>
+
+                    <i class="fa fa-3x fa-arrow-left" hidden$="[[lane-out-1]]"></i>
+                </div>
+                <div class="v-opp-lane-2">
+                    <traffic-light orientation="vertical" status="{{status_2}}"></traffic-light>
+
+                    <i class="fa fa-3x fa-arrow-up" hidden$="[[lane-out-2]]"></i>
+                </div>
+            </div>
+            <div class="flex__item flex__item--top"></div>
+        </div>
+
+
+    </template>
+    <script>
+        Polymer({
+            is: 'south-road',
+            properties: {},
+            ready: function () {
+
+                var _this = this;
+                document.addEventListener('go-dir-1', function (e) {
+                    // turn semaphore red
+                    _this.set('status_1', 'yellow');
+
+                    setTimeout(function () {
+                        _this.set('status_1', 'red');
+                        _this.set('status_2', 'red');
+                    }, 1500)
+
+                });
+                document.addEventListener('go-dir-2', function (e) {
+                    _this.set('status_1', 'red');
+                    _this.set('status_2', 'red');
+                });
+                document.addEventListener('go-dir-3', function (e) {
+                    _this.set('status_1', 'yellow');
+                    _this.set('status_2', 'yellow');
+
+                    setTimeout(function () {
+                        _this.set('status_1', 'red');
+                        _this.set('lane-out-1',false);
+                        _this.set('status_2', 'green');
+                        _this.set('lane-out-2',true);
+
+                    }, 1500)
+                });
+                document.addEventListener('go-dir-4', function (e) {
+                    _this.set('status_1', 'yellow');
+                    _this.set('status_2', 'yellow');
+
+                    setTimeout(function () {
+                        _this.set('status_1', 'green');
+                        _this.set('status_2', 'red');
+                    }, 1500)
+                });
+
+                // when error state is detected, lights should flash yellow
+                document.addEventListener('error-state', function (e) {
+                    console.log('south error-state ');
+                }.bind(this));
+            }
+        })
+    </script>
+</dom-module>

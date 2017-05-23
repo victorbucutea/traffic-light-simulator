@@ -1,0 +1,48 @@
+<!-- import polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="east-road.html">
+<link rel="import" href="west-road.html">
+<link rel="import" href="north-road.html">
+<link rel="import" href="south-road.html">
+<style include="styles-styles" is="custom-style"></style>
+
+<dom-module id="guided-intersection">
+    <template>
+        <style include="styles-styles" is="custom-style"></style>
+
+        <north-road></north-road>
+
+        <div class="flex flex--row">
+            <east-road class="flex__item"></east-road>
+            <div class="intersection"></div>
+            <west-road class="flex__item"></west-road>
+        </div>
+
+        <south-road></south-road>
+
+    </template>
+    <script>
+        Polymer({
+            is: 'guided-intersection',
+            properties: {
+                directions: {
+                    type: Array,
+                    value: ['go-dir-1','go-dir-2','go-dir-3','go-dir-4']
+                }
+            },
+            ready: function () {
+                var _this = this;
+                var i = 0;
+                var fireDirection = function(){
+                    _this.fire(_this.directions[i++]);
+                    if ( i >= _this.directions.length) {
+                        i = 0;
+                    }
+                    setTimeout(fireDirection,5000);
+                };
+                fireDirection();
+            }
+        })
+    </script>
+</dom-module>

@@ -1,0 +1,65 @@
+<!-- import polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="styles-styles.html">
+
+
+<dom-module id="traffic-light">
+    <template>
+
+        <style include="styles-styles" is="custom-style"></style>
+
+
+        <div class="light-container u-p-- u-m-">
+            <div id="semaphore" class$="{{computeClass(orientation)}}">
+                <div name="red" class$="light red flex__item--baseline {{red}}"></div>
+                <div name="yellow" class$="light yellow flex__item--baseline {{yellow}} "></div>
+                <div name="green" class$="light green flex__item--baseline {{green}} "></div>
+            </div>
+        </div>
+
+
+    </template>
+    <script>
+        Polymer({
+            is: 'traffic-light',
+            properties: {
+                status: {
+                    type: String,
+                    value: 'red',
+                    observer: 'computeOnOff'
+                },
+                orientation: {
+                    type: String,
+                    value: 'horizontal'
+                }
+            },
+            computeClass: function (newVal) {
+                return newVal == 'horizontal' ? 'flex flex--row' : '';
+            },
+            computeOnOff: function (newVal) {
+                switch (newVal) {
+                    case 'red':
+                        this.set('red', 'on');
+                        this.set('yellow', '');
+                        this.set('green', '');
+                        break;
+                    case 'yellow':
+                        this.set('red', '');
+                        this.set('yellow', 'on');
+                        this.set('green', '');
+                        break;
+                    case 'green':
+                        this.set('red', '');
+                        this.set('yellow', '');
+                        this.set('green', 'on');
+                        break;
+                    default:
+                        this.set('red', 'on');
+                        this.set('yellow', '');
+                        this.set('green', '');
+                        break;
+                }
+            }
+        });
+    </script>
+</dom-module>

@@ -1,0 +1,115 @@
+$inuit-enable-margins--tiny: true;
+$inuit-enable-margins--small: true;
+$inuit-enable-margins--large: true;
+$inuit-enable-margins--huge: true;
+$inuit-enable-margins--none: true;
+$inuit-enable-margins--rtl: true;
+$inuit-enable-margins--negative-tiny: true;
+$inuit-enable-paddings: true;
+$inuit-enable-paddings--tiny: true;
+$inuit-enable-paddings--small: true;
+$inuit-enable-paddings--large: true;
+$inuit-enable-paddings--huge: true;
+$inuit-enable-paddings--none: true;
+
+$fa-font-path: "/bower_components/font-awesome/fonts" !default;
+
+@import "px-flexbox-design/_base.flexbox.scss";
+@import "px-spacing-design/_trumps.spacing.scss";
+@import "font-awesome/scss/font-awesome.scss";
+
+$lane-width: 50px;
+
+.lane-1 {
+  border-top: 4px solid #aaa;
+  border-bottom: 4px dashed #aaa;
+  height: $lane-width;
+}
+
+.lane-2 {
+  border-bottom: 4px solid #aaa;
+  height: $lane-width;
+}
+
+.opp-lane-1 {
+  margin-top: 2px;
+  border-top: 4px solid #aaa;
+  border-bottom: 4px dashed #aaa;
+  height: $lane-width;
+}
+
+.opp-lane-2 {
+  border-bottom: 4px solid #aaa;
+  height: $lane-width;
+}
+
+.v-lane-1 {
+  border-left: 4px solid #aaa;
+  border-right: 4px dashed #aaa;
+  width: $lane-width;
+  height: 35vh;
+}
+
+.v-lane-2 {
+  border-right: 4px solid #aaa;
+  width: $lane-width;
+  height: 35vh;
+}
+
+.v-opp-lane-1 {
+  margin-left: 2px;
+  border-left: 4px solid #aaa;
+  border-right: 4px dashed #aaa;
+  width: $lane-width;
+  height: 35vh;
+
+
+}
+
+.v-opp-lane-2 {
+  border-right: 4px solid #aaa;
+  width: $lane-width;
+  height: 35vh;
+}
+
+.intersection {
+  width: $lane-width * 4 + 4 + 4 +4 +6;
+  height: $lane-width * 4 + 4 + 4 +4;
+}
+
+.light-container {
+
+  border: 1px solid #333;
+  border-radius: 4px;
+
+  .light {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+  }
+}
+
+#semaphore {
+  position: relative;
+}
+
+.red {
+  background-color: #8f0000;
+  &.on {
+    background-color: red;
+  }
+}
+
+.yellow {
+  background-color: #b5b500;
+  &.on {
+    background-color: yellow;
+  }
+}
+
+.green {
+  background-color: #004900;
+  &.on {
+    background-color: #1ddc1d;
+  }
+}
