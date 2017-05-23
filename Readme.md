@@ -10,3 +10,7 @@ be slaves which change color according to their 'central manager'.
 
 If the semaphores themselves change color and command the other semaphores to respect their color, too many events will
 be generated and to many 'safety' checks need to be put in place and a very precise clock is required to keep them in sync.
+
+
+* The guided-intersection.html file is the central manager in charge of activating a flow
+* The ***-road.html will just respond to events coming from the manager, and will change their state accordingly.
