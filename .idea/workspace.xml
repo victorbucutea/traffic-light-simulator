@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0df85a06-e19c-4271-b0fd-d378a0fb91ed" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Readme.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="b0bdce63-e381-4912-b412-565b963a549e" name="timings" comment="" />
@@ -575,7 +574,7 @@
       <created>1495555011973</created>
       <option name="number" value="Default" />
       <updated>1495555011973</updated>
-      <workItem from="1495555015990" duration="2379000" />
+      <workItem from="1495555015990" duration="2393000" />
     </task>
     <task id="LOCAL-00001" summary="timings">
       <created>1495556205017</created>
@@ -583,11 +582,17 @@
       <option name="project" value="LOCAL" />
       <updated>1495556205017</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="readme">
+      <created>1495558734009</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1495558734009</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2379000" />
+    <option name="totallyTimeSpent" value="2393000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="0" />
@@ -622,8 +627,11 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="timings" />
-    <option name="LAST_COMMIT_MESSAGE" value="timings" />
+    <MESSAGE value="readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
