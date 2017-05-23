@@ -13,14 +13,10 @@
                 <div class="v-lane-2"></div>
 
                 <div class="v-opp-lane-1">
-                    <traffic-light orientation="vertical" status="{{status_1}}"></traffic-light>
-
-                    <i class="fa fa-3x fa-arrow-left" hidden$="[[lane-out-1]]"></i>
+                    <traffic-light orientation="vertical" icon="fa-arrow-left" status="{{status_1}}"></traffic-light>
                 </div>
                 <div class="v-opp-lane-2">
-                    <traffic-light orientation="vertical" status="{{status_2}}"></traffic-light>
-
-                    <i class="fa fa-3x fa-arrow-up" hidden$="[[lane-out-2]]"></i>
+                    <traffic-light orientation="vertical" icon="fa-arrow-up" status="{{status_2}}"></traffic-light>
                 </div>
             </div>
             <div class="flex__item flex__item--top"></div>
@@ -55,9 +51,7 @@
 
                     setTimeout(function () {
                         _this.set('status_1', 'red');
-                        _this.set('lane-out-1',false);
                         _this.set('status_2', 'green');
-                        _this.set('lane-out-2',true);
 
                     }, 1500)
                 });

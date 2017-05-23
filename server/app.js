@@ -6,11 +6,7 @@
  *******************************************************/
 
 var express = require('express');
-var jsonServer = require('json-server'); // used for mock api responses
 var path = require('path');
-var cookieParser = require('cookie-parser'); // used for session cookie
-var bodyParser = require('body-parser');
-var session = require('express-session');
 
 
 /**********************************************************************
@@ -18,25 +14,11 @@ var session = require('express-session');
  ***********************************************************************/
 var app = express();
 
-//Initializing application modules
-app.use(cookieParser('predixsample'));
-// Initializing default session store
-app.use(session({
-    secret: 'predixsample',
-    name: 'nsessionid',
-    proxy: true,
-    resave: true,
-    saveUninitialized: true
-}));
-
-
 /****************************************************************************
  SET UP EXPRESS ROUTES
  *****************************************************************************/
 
 app.use(express.static(path.join(__dirname, '../public')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
 
 
 var server = app.listen(process.env.VCAP_APP_PORT || 5000, function () {
