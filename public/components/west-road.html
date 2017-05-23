@@ -7,10 +7,10 @@
 
 
         <div class="lane-1 flex flex-row">
-            <traffic-light status="{{status_1}}"></traffic-light>
+            <traffic-light status="{{status_1}}"  icon="fa-arrow-up"></traffic-light>
         </div>
         <div class="lane-2 flex flex-row">
-            <traffic-light status="{{status_2}}"></traffic-light>
+            <traffic-light status="{{status_2}}"  icon="fa-arrow-left"></traffic-light>
         </div>
 
         <div class="opp-lane-1"></div>
@@ -31,7 +31,7 @@
                     setTimeout(function(){
                         _this.set('status_1','green');
                         _this.set('status_2','red');
-                    },1500)
+                    },30000)
                 });
                 document.addEventListener('go-dir-2', function (e) {
                     _this.set('status_1','yellow');
@@ -40,7 +40,7 @@
                     setTimeout(function(){
                         _this.set('status_1','red');
                         _this.set('status_2','green');
-                    },1500)
+                    },30000)
                 });
                 document.addEventListener('go-dir-3', function (e) {
                     _this.set('status_2','yellow');
@@ -48,7 +48,7 @@
                     setTimeout(function(){
                         _this.set('status_1','red');
                         _this.set('status_2','red');
-                    },1500)
+                    },30000)
                 }.bind(this));
                 document.addEventListener('go-dir-4', function (e) {
                     // nothing to do, we have red
