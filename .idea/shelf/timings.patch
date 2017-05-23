@@ -1,0 +1,152 @@
+Index: public/components/west-road.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- public/components/west-road.html	(revision 64d42eadfb63d629bfd2cacfbdd14368fd6c95db)
++++ public/components/west-road.html	(revision )
+@@ -31,7 +31,7 @@
+                     setTimeout(function(){
+                         _this.set('status_1','green');
+                         _this.set('status_2','red');
+-                    },30000)
++                    },1500)
+                 });
+                 document.addEventListener('go-dir-2', function (e) {
+                     _this.set('status_1','yellow');
+@@ -40,7 +40,7 @@
+                     setTimeout(function(){
+                         _this.set('status_1','red');
+                         _this.set('status_2','green');
+-                    },30000)
++                    },1500)
+                 });
+                 document.addEventListener('go-dir-3', function (e) {
+                     _this.set('status_2','yellow');
+@@ -48,7 +48,7 @@
+                     setTimeout(function(){
+                         _this.set('status_1','red');
+                         _this.set('status_2','red');
+-                    },30000)
++                    },1500)
+                 }.bind(this));
+                 document.addEventListener('go-dir-4', function (e) {
+                     // nothing to do, we have red
+Index: public/components/guided-intersection.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- public/components/guided-intersection.html	(revision 64d42eadfb63d629bfd2cacfbdd14368fd6c95db)
++++ public/components/guided-intersection.html	(revision )
+@@ -39,7 +39,7 @@
+                     if ( i >= _this.directions.length) {
+                         i = 0;
+                     }
+-                    setTimeout(fireDirection,1000 * 60 * 5 );
++                    setTimeout(fireDirection,5000);
+                 };
+                 fireDirection();
+             }
+Index: public/components/north-road.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- public/components/north-road.html	(revision 64d42eadfb63d629bfd2cacfbdd14368fd6c95db)
++++ public/components/north-road.html	(revision )
+@@ -41,7 +41,7 @@
+                     setTimeout(function () {
+                         _this.set('status_1', 'red');
+                         _this.set('status_2', 'red');
+-                    }, 30000)
++                    }, 1500)
+                 });
+                 document.addEventListener('go-dir-2', function (e) {
+                     _this.set('status_1', 'red');
+@@ -55,7 +55,7 @@
+                     setTimeout(function () {
+                         _this.set('status_1', 'green');
+                         _this.set('status_2', 'red');
+-                    }, 30000)
++                    }, 1500)
+                 });
+                 document.addEventListener('go-dir-4', function (e) {
+                     _this.set('status_1', 'yellow');
+@@ -64,7 +64,7 @@
+                     setTimeout(function () {
+                         _this.set('status_1', 'red');
+                         _this.set('status_2', 'green');
+-                    }, 30000)
++                    }, 1500)
+                 });
+ 
+                 // when error state is detected, lights should flash yellow
+Index: public/components/east-road.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- public/components/east-road.html	(revision 64d42eadfb63d629bfd2cacfbdd14368fd6c95db)
++++ public/components/east-road.html	(revision )
+@@ -32,7 +32,7 @@
+                     setTimeout(function(){
+                         _this.set('status_1','red');
+                         _this.set('status_2','green');
+-                    },30000)
++                    },1500)
+                 });
+                 document.addEventListener('go-dir-2', function (e) {
+                     _this.set('status_1','yellow');
+@@ -41,7 +41,7 @@
+                     setTimeout(function(){
+                         _this.set('status_1','green');
+                         _this.set('status_2','red');
+-                    },30000)
++                    },1500)
+                 });
+                 document.addEventListener('go-dir-3', function (e) {
+                     _this.set('status_1','yellow');
+@@ -49,7 +49,7 @@
+                     setTimeout(function(){
+                         _this.set('status_1','red');
+                         _this.set('status_2','red');
+-                    },30000)
++                    },1500)
+                 });
+                 document.addEventListener('go-dir-4', function (e) {
+                     // nothing to do, we have red
+Index: public/components/south-road.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- public/components/south-road.html	(revision 64d42eadfb63d629bfd2cacfbdd14368fd6c95db)
++++ public/components/south-road.html	(revision )
+@@ -38,7 +38,7 @@
+                     setTimeout(function () {
+                         _this.set('status_1', 'red');
+                         _this.set('status_2', 'red');
+-                    }, 30000)
++                    }, 1500)
+ 
+                 });
+                 document.addEventListener('go-dir-2', function (e) {
+@@ -53,7 +53,7 @@
+                         _this.set('status_1', 'red');
+                         _this.set('status_2', 'green');
+ 
+-                    }, 30000)
++                    }, 1500)
+                 });
+                 document.addEventListener('go-dir-4', function (e) {
+                     _this.set('status_1', 'yellow');
+@@ -62,7 +62,7 @@
+                     setTimeout(function () {
+                         _this.set('status_1', 'green');
+                         _this.set('status_2', 'red');
+-                    }, 30000)
++                    }, 1500)
+                 });
+ 
+                 // when error state is detected, lights should flash yellow

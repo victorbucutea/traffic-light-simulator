@@ -21,7 +21,9 @@ var app = express();
 app.use(express.static(path.join(__dirname, '../public')));
 
 
-var server = app.listen(process.env.VCAP_APP_PORT || 5000, function () {
+var server = app.listen(process.env.VCAP_APP_PORT || process.env.PORT ||  5000, function () {
+
+
     console.log('Server started on port: ' + server.address().port);
 });
 
